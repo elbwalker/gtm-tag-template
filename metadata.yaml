@@ -1,0 +1,6 @@
+homepage: "https://www.elbwalker.com"
+documentation: "https://github.com/elbwalker/gtm-tag-template#readme"
+versions:
+  # Latest version
+  - sha: xxxxxxxxx
+    changeNotes: Initial release.
