@@ -14,6 +14,9 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "walker.js Event",
+  "categories": [
+    "ANALYTICS"
+  ],
   "brand": {
     "id": "mbaersch",
     "displayName": "mbaersch",
