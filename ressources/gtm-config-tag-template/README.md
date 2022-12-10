@@ -176,5 +176,5 @@ Then configure *User* to include the `{{sessionId}}` as Session ID and `{{client
 
 All other fields like consent or loading of walker.js can be configured to match your reuirements.   
 
-### Use Triggers
-The session helper tag pushes all client- and session data to the dataLayer along with an event key called `sessionDataReady`. Create a *Custom Event* trigger in GTM to fire the configuration tag. Depending on how you handle consent in the destination, events will then be sent to SGTM where you can process them and hand data over to different vendors respecting consent (sent with every event).   
+### Step 4: Add Trigger
+The session helper HTML tag pushes all client- and session data to the dataLayer along with an event key called `sessionDataReady`. Create a *Custom Event* trigger in GTM to fire the configuration tag. Depending on how you handle consent in the destination, events will then be sent to SGTM where you can process them and hand data over to different vendors respecting consent (sent with every event).   
