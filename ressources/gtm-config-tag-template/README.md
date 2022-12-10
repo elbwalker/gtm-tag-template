@@ -1,6 +1,8 @@
 # walker.js Configuration - Custom Tag Template for Google Tag Manager
 The code from `template.tpl` in this folder can be imported as a new tag template in GTM in order to (optionally) load and configure walker.js. It can be used as an alternative for manual configuration shown in the example Custom HTML init tag `example-init-tag.html` from the parent folder. 
 
+[![Beta Status](https://img.shields.io/badge/Status-Beta-yellow.svg)](https://shields.io/)
+
 ## Usage
 Import the template in GTM´s template editor and add a new tag using this template. When and how to trigger the tag depends on your implementation and configuration.  
 
