@@ -1,5 +1,13 @@
-# elbwalker-gtm-tag-template
+<p align="left">
+  <a href="https://elbwalker.com">
+    <img title="elbwalker" src='https://www.elbwalker.com/elbwalker.png' width="300px"/>
+  </a>
+</p>
+
+# elbwalker Google Tag Manager Custom Tag Template
 Google Tag Manager Custom Tag Template. Creates events for walker.js. This is a beta template release. 
+
+[![Beta Status](https://img.shields.io/badge/Status-Beta-yellow.svg)](https://shields.io/)
 
 ## Usage
 Install this template and add one or more tags to define walker.js events that get pushed to the elbLayer for processing. 

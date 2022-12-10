@@ -17,12 +17,12 @@ ___INFO___
   "brand": {
     "id": "mbaersch",
     "displayName": "mbaersch",
-    "categories": [
-      "ANALYTICS"
-    ],
     "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAABmJLR0QAvgD/ALe9KR/IAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH5gseEAEKLjc4rQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAMSSURBVEjH1VZLSJRRFP7O/f9hMoqMYoasGBOpaFNhSIvohSA12juSorIHahKJLaRVm6BAKiQj8gGJEC6KQJ0BLUjalIsgadVLZ4wk/ikpSR0dnXtaKGYzZ/75d9Fdnu+e8333nHPPvcA/XuR0o6cztJiUug6iEgDL5wDm3Zbf12Pn6w2GNwFUB6KtANyzfl8sv2+16ZA8gwyjB0DeXwBzH0fHXtiSB0K7QKobgCsBqgUA5ShNhnEliXxm1UeObNApyTsHCKSaBfIx1vFWRwI87Z8WADgnQF/1RLTNXjkdAFFOkp25IVKcM+JIAJmukwBWCkFavh1eH7V1VkaVYNUA189tcVCBMsE2zvH4bdvadwxsBrBDEN5u+bPDjgR4g4MFINoiBHkU2Zfz3Va2YVSnQG7+laQ0p5dTyFyX5totBdFRQfhby+976UiANziYC6K9AvTcKsruSyO8BsACwX4jqU1sglSKuNZ37O992AVSZ5IRHgbwxJEAbyCcCaJyAfrAU7FAmtOfBeAV0l9n+X2xRLOZ4v6eBrBQCHI/cnAte4Ph7QBVAygEeDYz3GUVrzkEpS4IESdBqsHRW+Bp7zfJND+DaEUC+y+enMwil+swlNEiiPOD9RSU8VTAmiy/r0wcFcmDx9yTTA6A0QTTZUIZ9QJBSP8Y7oJSVWJGmRtTzirBdlUKAa1vk1IXASwW8FtqydJcgAoF12dWUfZrRwK8gXBeisHTbhWvGQLhvEAwDq0fQqlLYk9pvms7rROa73KKFNZ6AqHjAPmE3NxjsALRCcHvnR4dCTgS4OnozwLRMSHIG6so+xUp44xYGuYHZJinAGQK+L1vJRu1nQDzz5tvVgIwhD213s7QZgAFgrguAJ/A3A1KulDfOTbxIN1LZwKA58n7DBBVCARDHI8/JtNoTFGaOyAqBtEqAWuNHFw36kgAud2lAJYJeDmIMgHxYWnjWKyb3O5ewe8jT09dc/LbmukBUhUJwXvBeqfl9wVJqUoAi+ahEbCu4eh4Kbnd+SDKn/9PAHMzpqe3Rfbn/sT/sH4DfEUaJgR8khoAAAAASUVORK5CYII\u003d"
   },
   "description": "Create events for walker.js. Needs a seperately loaded and configured walker.js  script - Go to elbwalker.com for more information.",
+  "categories": [
+    "ANALYTICS"
+  ],
   "containerContexts": [
     "WEB"
   ]
