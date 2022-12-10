@@ -1,5 +1,5 @@
 # Using The Example walker.js Configuration in GTM
-The code contained in `example-init-tag.html` can be used as a staring point for loading and implementing the walker.js library using a Custom HTML tag inside Google Tag Manager. 
+The code contained in `example-init-tag.html` can be used as a starting point for loading and implementing the walker.js library using a Custom HTML tag inside Google Tag Manager. 
 
 Copy the code and add it to a new tag that can either be fired on every page whenever there is consent. Do not forget to change the endpoint URL and path to walker.js. The setup is based on the sample implementation / configuration in `walker-init.js` from the ssGTM client template repository [here](https://github.com/elbwalker/sgtm-client-template/tree/main/example#readme).
 
