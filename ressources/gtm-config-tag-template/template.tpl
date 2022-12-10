@@ -92,7 +92,8 @@ ___TEMPLATE_PARAMETERS___
         "type": "TEXT",
         "name": "destination",
         "displayName": "Destination Callback (optional)",
-        "simpleValueType": true
+        "simpleValueType": true,
+        "help": "Set to a Custom JavaScript variable that returns a destination object. See https://github.com/elbwalker/gtm-tag-template/tree/main/ressources/gtm-config-tag-template#destination-callback for more details."
       },
       {
         "type": "CHECKBOX",
