@@ -178,3 +178,6 @@ All other fields like consent or loading of walker.js can be configured to match
 
 ### Step 4: Add Trigger
 The session helper HTML tag pushes all client- and session data to the dataLayer along with an event key called `sessionDataReady`. Create a *Custom Event* trigger in GTM to fire the configuration tag. Depending on how you handle consent in the destination, events will then be sent to SGTM where you can process them and hand data over to different vendors respecting consent (sent with every event).   
+
+### Note: Session Start Marker
+This example sends a `session_start` key with a boolean value using `globals`. This means, that all following events after loading the page (`count` > 1) will contain the same marker in the `globals` section. When using the [elbwalker SGTM client template](https://github.com/elbwalker/sgtm-client-template), this will not lead to multiple session starts in GA4, because the client only processes the marker for the first event (`count` == 1). However, if you are using a different kind of endpoint, you will have to reset this value before sending other events than the initial page view.  
