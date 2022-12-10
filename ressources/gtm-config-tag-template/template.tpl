@@ -39,6 +39,22 @@ ___TEMPLATE_PARAMETERS___
     "groupStyle": "NO_ZIPPY",
     "subParams": [
       {
+        "type": "TEXT",
+        "name": "configVersion",
+        "displayName": "Configuration Version",
+        "simpleValueType": true,
+        "help": "Enter a version number (integer) for the current configuration. Will be sent as version.config in events when using walker.js v1.6+.",
+        "valueValidators": [
+          {
+            "type": "NON_EMPTY"
+          },
+          {
+            "type": "NON_NEGATIVE_NUMBER"
+          }
+        ],
+        "defaultValue": 1
+      },
+      {
         "type": "CHECKBOX",
         "name": "loadWalker",
         "checkboxText": "Load walker.js Script",
@@ -123,7 +139,8 @@ ___TEMPLATE_PARAMETERS___
           }
         ]
       }
-    ]
+    ],
+    "help": "Works only when using walker.js v1.6+. Set globals as DOM elements for older versions."
   },
   {
     "type": "GROUP",
@@ -205,22 +222,43 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
+/**
+ * @description Custom Google Tag Manager Tag Template for walker.js - Configuration
+ * @version 0.1.1
+ * @see {@link https://github.com/elbwalker|elbwalker on GitHub} for more about walker.js
+ */
+
 let elb = require("createArgumentsQueue")("elb", "elbLayer");
+
+// load script
 if (data.loadWalker === true && data.walkerPath)
   require("injectScript")(data.walkerPath, undefined, data.gtmOnFailure, "elbwalker");
 
+
+// populate globals object 
+let globalsInfo = {};
 if (data.globalsData && data.globalsData.length > 0) {
-  let globalsInfo = {};
   data.globalsData.forEach(x=>{
     let v = x.value;
     if (v) globalsInfo[x.key] = v;
   });
-  elb("walker config", { globals: globalsInfo }); 
 }  
 
-if (data.sessionId || data.deviceId || data.userId) 
-  elb("walker user", {session: data.sessionId, device: data.deviceId, id: data.userId});
+elb("walker config", { 
+  version: data.configVersion, 
+  globals: globalsInfo 
+}); 
 
+// set user properties (adding hash for walker.js < v1.6) 
+if (data.sessionId || data.deviceId || data.userId) {
+  elb("walker user", {
+    hash: data.sessionId, 
+    session: data.sessionId, 
+    device: data.deviceId, 
+    id: data.userId});
+}
+
+// define consent 
 if (data.consentData && data.consentData.length > 0) {
   let consentInfo = {};
   data.consentData.forEach(x=>{
@@ -229,9 +267,11 @@ if (data.consentData && data.consentData.length > 0) {
   elb("walker consent", consentInfo);
 }  
 
-if (data.destination) 
-  elb("walker destination", data.destination); 
-elb("walker run");
+// set destination from callback variable 
+if (data.destination) elb("walker destination", data.destination); 
+
+// configuration done - run if defined
+if (data.runWalker === true) elb("walker run");
 
 data.gtmOnSuccess();
 
@@ -376,3 +416,5 @@ scenarios: []
 ___NOTES___
 
 Created on 10.12.2022, 01:34:32
+
+
