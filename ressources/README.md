@@ -4,10 +4,10 @@ The code contained in `example-init-tag.html` can be used as a starting point fo
 Copy the code and add it to a new tag that can either be fired on every page whenever there is consent. Do not forget to change the endpoint URL and path to walker.js. The setup is based on the sample implementation / configuration in `walker-init.js` from the ssGTM client template repository [here](https://github.com/elbwalker/sgtm-client-template/tree/main/example#readme).
 
 ## Handling Consent
-This example code replicates the usage of *localStorage* and *sessionStorage* for keeping track of a client id, a session id and session numbers (neccessary for GA4) like demonstrated in `walker-init.js` in the ssGTM example. You will have to adopt this part of the code to use your own implementation for persistent values like cookies or at least add the keys used in this example to your privacy information, consent dialog or similar. 
+This example code replicates the usage of *localStorage* and *sessionStorage* for keeping track of a device id, a session id and session numbers (neccessary for GA4) like demonstrated in `walker-init.js` in the ssGTM example. You will have to adopt this part of the code to use your own implementation for persistent values like cookies or at least add the keys used in this example to your privacy information, consent dialog or similar. 
 
 ### Use Destination
-A different approach would be to add consent-sensitivity to the walker.js destination and let walker.js know when there is consent. More info about consent handling can be found in the [elbwalker docs](https://docs.elbwalker.com/privacy/consent). 
+A different approach would be to add consent-sensitivity to the walker.js destination and let walker.js know when there is consent. More info about consent handling can be found in the [elbwalker docs](https://docs.elbwalker.com/privacy/consent). The example `walker-init.js` from the ssGTM client template shows how to handle consent for different destinations and has a "marketing" destination that only fires if consent is granted. 
 
 Adding events to the `elbLayer` (using code or the client template from this repository) then can be done without fear of sending events to your endpoint when the user opts out (or has not yet made a choice).
 
