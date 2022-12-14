@@ -47,13 +47,7 @@ Here is an example code that you can add to a new *Custom JavaScript* variable i
 function(){
   
   return {
-    
-    config: {
-      //TODO: add a consent condition if destination should only fire when specific consent is granted
-      //example:
-      //consent: {someConsent: true}
-    },
-    
+        
     push: function (event) {
       //TODO: add your ssGTM endpoint URL here:
       var url = "https://sgtm.example.com/elbwalker";

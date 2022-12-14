@@ -3,6 +3,9 @@ The code contained in `example-init-tag.html` can be used as a starting point fo
 
 Copy the code and add it to a new tag that can either be fired on every page whenever there is consent. Do not forget to change the endpoint URL and path to walker.js. The setup is based on the sample implementation / configuration in `walker-init.js` from the ssGTM client template repository [here](https://github.com/elbwalker/sgtm-client-template/tree/main/example#readme).
 
+## Transport Options
+The init script can be configured to use POST instead of GET requests when sending events to the ssGTM destination by using the `setup_xxx` variables at the top of the script. You can also switch or or off base64 coding.
+
 ## Handling Consent
 This example code replicates the usage of *localStorage* and *sessionStorage* for keeping track of a device id, a session id and session numbers (neccessary for GA4) like demonstrated in `walker-init.js` in the ssGTM example. You will have to adopt this part of the code to use your own implementation for persistent values like cookies or at least add the keys used in this example to your privacy information, consent dialog or similar. 
 
