@@ -72,6 +72,9 @@ function(){
 }
 
 ```
+#### Additional Destinations
+You might want to involve more than one destination in your client-side setup with different consent settings. If so, use the list below to define additional variables that contain other destinations with different init code, consent settings or endpoints and / or mappings. 
+
 ### Call "walker run"
 For a complete configuration that "starts" the walker, check this option. In other use cases you might want to fire a tag that calls `elb("walker run")` at a later stage. 
 

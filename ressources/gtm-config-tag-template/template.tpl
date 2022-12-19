@@ -96,6 +96,25 @@ ___TEMPLATE_PARAMETERS___
         "help": "Set to a Custom JavaScript variable that returns a destination object. See https://github.com/elbwalker/gtm-tag-template/tree/main/ressources/gtm-config-tag-template#destination-callback for more details."
       },
       {
+        "type": "SIMPLE_TABLE",
+        "name": "additionalDestinations",
+        "displayName": "Additional Destinations",
+        "simpleTableColumns": [
+          {
+            "defaultValue": "",
+            "displayName": "Destination",
+            "name": "destination",
+            "type": "TEXT"
+          }
+        ],
+        "valueValidators": [
+          {
+            "type": "NON_EMPTY"
+          }
+        ],
+        "help": "Add additional destinations if you want to run several tags with individual consent settings."
+      },
+      {
         "type": "CHECKBOX",
         "name": "runWalker",
         "checkboxText": "Call \"walker run\"",
@@ -270,6 +289,11 @@ if (data.consentData && data.consentData.length > 0) {
 
 // set destination from callback variable 
 if (data.destination) elb("walker destination", data.destination); 
+if (data.additionalDestinations)
+  data.additionalDestinations.forEach(d=>{
+    if (d.destination) 
+      elb("walker destination", d.destination); 
+  });
 
 // configuration done - run if defined
 if (data.runWalker === true) elb("walker run");
