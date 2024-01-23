@@ -178,3 +178,8 @@ The session helper HTML tag pushes all client- and session data to the dataLayer
 
 ### Note: Session Start Marker
 This example sends a `session_start` key with a boolean value using `globals`. This means, that all following events after loading the page (`count` > 1) will contain the same marker in the `globals` section. When using the [elbwalker SGTM client template](https://github.com/elbwalker/sgtm-client-template), this will not lead to multiple session starts in GA4, because the client only processes the marker for the first event (`count` == 1). However, if you are using a different kind of endpoint, you will have to reset this value before sending other events than the initial page view.  
+
+## Change Notes
+*2024-01-23*
+- changed CDN default path to walker.js from 1.5.3 to 2.0.0
+- adjustments for setting configuration version to fit 2.x (still compatible with older versions)

@@ -260,6 +260,81 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "GROUP",
+    "name": "customSection",
+    "displayName": "Add \"custom\"",
+    "groupStyle": "NO_ZIPPY",
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "customType",
+        "displayName": "Source",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "none",
+            "displayValue": "No context information"
+          },
+          {
+            "value": "object",
+            "displayValue": "Define Object"
+          },
+          {
+            "value": "table",
+            "displayValue": "Define Table"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "none"
+      },
+      {
+        "type": "TEXT",
+        "name": "customObject",
+        "displayName": "Context Variable",
+        "simpleValueType": true,
+        "enablingConditions": [
+          {
+            "paramName": "contextType",
+            "paramValue": "object",
+            "type": "EQUALS"
+          }
+        ]
+      },
+      {
+        "type": "PARAM_TABLE",
+        "name": "customTable",
+        "displayName": "Define \"context\" Content",
+        "paramTableColumns": [
+          {
+            "param": {
+              "type": "TEXT",
+              "name": "fieldName",
+              "displayName": "Key",
+              "simpleValueType": true
+            },
+            "isUnique": true
+          },
+          {
+            "param": {
+              "type": "TEXT",
+              "name": "fieldValue",
+              "displayName": "Value",
+              "simpleValueType": true
+            },
+            "isUnique": false
+          }
+        ],
+        "enablingConditions": [
+          {
+            "paramName": "contextType",
+            "paramValue": "table",
+            "type": "EQUALS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "GROUP",
     "name": "nestedSection",
     "displayName": "Add \"nested\"",
     "groupStyle": "NO_ZIPPY",
@@ -371,6 +446,17 @@ else if (data.contextType === "table")
 if (typeof(contextObj) !== "object") 
   contextObj = {};
 
+// define custom 
+let customObj = {};
+if (data.customType === "object") 
+  customObj = data.customObject;
+else if (data.customType === "table") 
+  data.customTable.forEach(x => {
+    customObj[x.fieldName] = x.fieldValue;
+  });
+if (typeof(customObj) !== "object") 
+  customObj = {};
+
 let nestedArray;
 if (data.nestedType === "object")  
   nestedArray = data.nestedArray;
@@ -381,12 +467,22 @@ if (nestedArray && (data.convertNested === true))
   nestedArray = convert2nested(nestedArray);
 
 // send event
-_elb(data.entity + " " + data.action, 
+//walker.js > 2.x: include custom
+if (data.customType !== "none")
+  _elb(data.entity + " " + data.action, 
+     dataObj,  
+     data.trigger||"unknown", 
+     contextObj,
+     nestedArray||[],
+     customObj
+  );
+else
+  _elb(data.entity + " " + data.action, 
      dataObj,  
      data.trigger||"unknown", 
      contextObj,
      nestedArray||[]
-);
+  );
 
 data.gtmOnSuccess();
 
@@ -502,6 +598,13 @@ ___WEB_PERMISSIONS___
       },
       "param": [
         {
+          "key": "allowedKeys",
+          "value": {
+            "type": 1,
+            "string": "specific"
+          }
+        },
+        {
           "key": "keyPatterns",
           "value": {
             "type": 2,
@@ -531,5 +634,3 @@ scenarios: []
 ___NOTES___
 
 Created on 5.12.2022, 00:08:05
-
-

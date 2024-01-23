@@ -86,7 +86,7 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ],
-        "defaultValue": "https://cdn.jsdelivr.net/npm/@elbwalker/walker.js@1.5.3/dist/walker.js"
+        "defaultValue": "https://cdn.jsdelivr.net/npm/@elbwalker/walker.js@2.0.0/dist/walker.js"
       },
       {
         "type": "TEXT",
@@ -245,7 +245,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 /**
  * @description Custom Google Tag Manager Tag Template for walker.js - Configuration
  * @version 0.1.1
- * @see {@link https://github.com/elbwalker|elbwalker on GitHub} for more about walker.js
+ * @see {@link https://github.com/elbwalker on GitHub} for more about walker.js
  */
 
 let elb = require("createArgumentsQueue")("elb", "elbLayer");
@@ -266,13 +266,15 @@ if (data.globalsData && data.globalsData.length > 0) {
 
 elb("walker config", { 
   version: data.configVersion, 
+  //walker.js >= 2.x
+  tagging: data.configVersion, 
   globals: globalsInfo 
 }); 
 
-// set user properties (adding hash for walker.js < v1.6) 
+// set user properties  
 if (data.sessionId || data.deviceId || data.userId) {
   elb("walker user", {
-    hash: data.sessionId, 
+    hash: data.sessionId, //adding hash for walker.js < v1.6
     session: data.sessionId, 
     device: data.deviceId, 
     id: data.userId});
@@ -441,5 +443,3 @@ scenarios: []
 ___NOTES___
 
 Created on 10.12.2022, 01:34:32
-
-

@@ -62,3 +62,7 @@ When a purchase is sent, a walker.js event usually includes details for the tran
 ![image](https://user-images.githubusercontent.com/15323700/205529691-a31f4a32-ef37-4e57-9eaa-9a5b48a85b30.png)
 
 If the implemented dataLayer does not use the GA4 format or does not get cleared and contains wrong items, pick "Object" as a source for the `nested` array and pick a variable that accesses / contains the desired item data. Either an array with all attributes for GA4 *items* or any other object containing an `ecommerce.items` or `items` key with those attributes, so that any structure that is / was used to feed GA4 tags should be sufficient. 
+
+## Change Notes
+*2024-01-23*
+- added support for `custom` object for walker.js 2.x
