@@ -2,5 +2,5 @@ homepage: "https://www.elbwalker.com"
 documentation: "https://github.com/elbwalker/gtm-tag-template#readme"
 versions:
   # Latest version
-  - sha: xxxxxxxxx
+  - sha: b109aac7c5f4d3262dfa6ff72a7d9c8cdbad35aa
     changeNotes: Initial release.
